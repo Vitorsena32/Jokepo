@@ -6,6 +6,13 @@ const machineScore= document.querySelector('#machine-Score')
 let humanScoreNumber= 0
 let machineScoreNumber= 0
 
+const GAME_OPTIONS ={
+    ROCK: ' rock',
+    PAPER: 'paper',
+    SCRISSOR:'scrissors'
+}
+
+
 const playHuman = (humanChoice) => {
 
     playTheGame(humanChoice, playMachine())
@@ -14,7 +21,7 @@ const playHuman = (humanChoice) => {
 
 
 const playMachine = () => {
-    const choices = ['rock', 'paper', 'scrissors']
+    const choices = [GAME_OPTIONS.ROCK,GAME_OPTIONS.PAPER, GAME_OPTIONS.SCRISSOR]
 
     const randomNumber = Math.floor(Math.random() * 3)
 
@@ -32,9 +39,9 @@ const playTheGame = (human, machine) => {
         result.innerHTML = "Empate &#x1F91D"
 
     } else if (
-        (human === 'paper' && machine === "rock") ||
-        (human === 'rock' && machine === 'scrissors') ||
-        (human === 'scrissors' && machine === 'paper')
+        (human === GAME_OPTIONS.PAPER && machine === GAME_OPTIONS.ROCK) ||
+        (human === GAME_OPTIONS.ROCK && machine === GAME_OPTIONS.SCRISSOR) ||
+        (human === GAME_OPTIONS.SCRISSOR && machine === GAME_OPTIONS.PAPER)
     ) {
         humanScoreNumber ++
         humanScore.innerHTML = humanScoreNumber
